@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import umc.spring.study.domain.common.BaseEntity;
+import umc.spring.study.domain.enums.MissionStatus;
 
 import java.math.BigInteger;
 
@@ -22,8 +23,6 @@ public class UserMission extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @Enumerated(EnumType.STRING)
-//    private UserMission status;
 
     //mission이랑 연계
     private Integer point;
@@ -34,5 +33,8 @@ public class UserMission extends BaseEntity {
     //외래키
     private BigInteger missionId;
 
-
+    //    @Enumerated(EnumType.STRING)
+//    private UserMission status;
+    @Enumerated(EnumType.STRING)
+    private MissionStatus status;
 }

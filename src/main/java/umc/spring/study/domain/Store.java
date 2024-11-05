@@ -3,6 +3,7 @@ package umc.spring.study.domain;
 import umc.spring.study.domain.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
+import umc.spring.study.domain.mapping.Category;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -24,12 +25,14 @@ public class Store extends BaseEntity{
     // nn
     private String address;
 
-    // Column(precision =10, scale = 8)
+    @Column(precision = 10, scale = 8)
     private BigDecimal latitude;
 
-    // 외래키 ? 다른데랑 연결
-    private BigInteger categoryId;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
-    // 외래키? 다른데랑 연결
-    private BigInteger locationId;
+    @ManyToOne
+    @JoinColumn(name = "location_id")
+    private Location location;
 }

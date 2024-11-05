@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import umc.spring.study.domain.common.BaseEntity;
 import umc.spring.study.domain.enums.Gender;
+import umc.spring.study.domain.mapping.Category;
 import umc.spring.study.domain.mapping.UserMission;
 
 import java.time.LocalDate;
@@ -28,7 +29,7 @@ public class User extends BaseEntity {
 
     private String address;
 
-    private LocalDate  birth;
+    private LocalDate birth;
 
     private String specAddr;
 
@@ -47,4 +48,12 @@ public class User extends BaseEntity {
     // user - usermission 일대다 관계
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<UserMission> userMissions;
+
+    // Category
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Category> categories;
+
+    // 유저 삭제 시 모든 리뷰도 삭제되도록 설정 => 이런거 추가해줘야하나? 급 고민
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<Review> reviews;
 }

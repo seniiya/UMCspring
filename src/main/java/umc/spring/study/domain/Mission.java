@@ -27,11 +27,13 @@ public class Mission extends BaseEntity {
 
     private Integer point;
 
-    //외래키
-    private BigInteger storeId;
+    @ManyToOne
+    @JoinColumn(name = "store_id")
+    private Store store;
 
-    //외래키
-    private BigInteger locationId;
+    @ManyToOne
+    @JoinColumn(name = "location_id")
+    private Location location;
 
     private String missionSpec;
 

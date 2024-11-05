@@ -20,8 +20,9 @@ public class Category extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //nn 외래키? onetomany / manytoone
-    private BigInteger userId;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     // nn 외래키? onetomany / manytoone
 //    private BigInteger foodCategoryId;

@@ -20,11 +20,14 @@ public class Review extends BaseEntity{
 
     private String content;
 
-    // nn +
-    private BigInteger userId;
+    // 여기 user_id를 받는데 User 테이블에 onetomany 빠져있어도 되나?
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    //nn +
-    private BigInteger storeId;
+    @ManyToOne
+    @JoinColumn(name = "store_id")
+    private Store store;
 
     // nn
     private Float rating;

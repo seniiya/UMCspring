@@ -21,8 +21,9 @@ public class Alarm extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // nn user와 연결
-    private BigInteger userId;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     // nn 알람내용
     private String content;

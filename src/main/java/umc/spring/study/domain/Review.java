@@ -13,14 +13,13 @@ import java.util.ArrayList;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class Review extends BaseEntity{
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String content;
 
-    // 여기 user_id를 받는데 User 테이블에 onetomany 빠져있어도 되나?
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -29,7 +28,7 @@ public class Review extends BaseEntity{
     @JoinColumn(name = "store_id")
     private Store store;
 
-    // nn
+    // nn, 별점, store 에서는 score 임. 헷갈림 주의
     private Float rating;
 }
 

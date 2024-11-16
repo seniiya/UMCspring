@@ -48,4 +48,15 @@ public class Store extends BaseEntity{
 
     // 다대다 관계 - 가게를 삭제했을 때 해당 가게에 있던 리뷰나 미션들 모두
     // 삭제되어야 하기에 이를 설정해줘도 좋음
+
+    @Override
+    public String toString() {
+        return "Store{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", score=" + score +
+                ", region=" + (location != null ? location.getRegionName() : "N/A") + // region의 이름 출력
+                '}';
+    }
 }

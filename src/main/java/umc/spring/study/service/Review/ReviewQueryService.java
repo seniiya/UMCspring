@@ -15,5 +15,7 @@ public interface ReviewQueryService {
      */
     List<Review> getReviewsByUser(Long userId, int page, int size);
     List<Review> getReviewsByMinScore(Float minScore, int page, int size);
+
+    List<Review> getReviewsByStore(Long storeId, int page, int size);
 }
 

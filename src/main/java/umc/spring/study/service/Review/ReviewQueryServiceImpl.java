@@ -17,6 +17,16 @@ public class ReviewQueryServiceImpl implements ReviewQueryService {
     private final JPAQueryFactory queryFactory;
 
     @Override
+    public List<Review> getReviewsByUser(Long userId, int page, int size) {
+        return List.of();
+    }
+
+    @Override
+    public List<Review> getReviewsByMinScore(Float minScore, int page, int size) {
+        return List.of();
+    }
+
+    @Override
     public List<Review> getReviewsByStore(Long storeId, int page, int size) {
         QReview review = QReview.review;
 

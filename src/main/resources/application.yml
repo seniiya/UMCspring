@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/study
+    username: root
+    password: Bridge8354!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  sql:
+    init:
+      mode: never
+  jpa:
+    properties:  # 이 부분 hibernate.ddl-auto.properties.hibernate.아래와 같이 수정하라 제안.
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+        hbm2ddl:
+          auto: update
+#         auto 는 꼭 update로 설정해놔야함! create는 처음에만 사용하기
+        default_batch_fetch_size: 1000
+  main:
+    allow-bean-definition-overriding: true
+  # 오류가 떠서 추가해봄
